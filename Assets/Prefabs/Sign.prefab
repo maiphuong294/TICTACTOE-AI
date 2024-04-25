@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1905223189552633680}
   - component: {fileID: 2508238395213794748}
+  - component: {fileID: 3569736056029045412}
   m_Layer: 0
   m_Name: Sign
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6651578380802947331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0760455, y: 0.55012536, z: 0.049444042}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 1981976291, guid: f61754a46ca48d94591d7a53a17295af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -84,3 +85,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3569736056029045412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6651578380802947331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 934501ab57a487441b0d1386b063c60f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eSign: 0
+  sprite_X: {fileID: 1981976291, guid: f61754a46ca48d94591d7a53a17295af, type: 3}
+  sprite_O: {fileID: -1897455749, guid: f61754a46ca48d94591d7a53a17295af, type: 3}
+  spriteRenderer: {fileID: 2508238395213794748}

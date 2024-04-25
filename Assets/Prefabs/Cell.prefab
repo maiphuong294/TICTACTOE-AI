@@ -100,6 +100,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 840097785038731256}
   boxCollider: {fileID: 3723605172161279476}
+  signPrefab: {fileID: 3569736056029045412, guid: 1ad6eab4ac4caed4f9485d7516650578, type: 3}
+  sign: {fileID: 0}
+  Row: 0
+  Column: 0
 --- !u!61 &3723605172161279476
 BoxCollider2D:
   m_ObjectHideFlags: 0

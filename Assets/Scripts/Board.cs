@@ -7,13 +7,12 @@ public class Board : MonoBehaviour
 {
     public static Board Instance {  get; private set; }
 
-    private Cell[,] cells = new Cell[4, 4];
+    public Cell[,] Cells = new Cell[4, 4];
 
     public int BoardSize { get; private set; } = 3;
 
     public float BoardWidth;
 
-    public Vector3 UpLeftCorner;
     
     [SerializeField] private GameObject cellPrefab;
     public SpriteRenderer spriteRenderer;
@@ -24,8 +23,7 @@ public class Board : MonoBehaviour
     public void Start()
     {
         BoardWidth = spriteRenderer.sprite.bounds.size.x;
-        UpLeftCorner = Vector3.zero - new Vector3(BoardWidth, -BoardWidth, 0f);
-        Instantiate(cellPrefab, UpLeftCorner, Quaternion.identity);
+        SpawnCells();
     }
 
     [Button]
@@ -35,9 +33,33 @@ public class Board : MonoBehaviour
         {
             for (int j = 1; j <= BoardSize; j++)
             {
-                cells[i, j] = Instantiate(cellPrefab, transform).GetComponent<Cell>();
-                cells[i, j].SetPosInBoard(i, j);
+                Cells[i, j] = Instantiate(cellPrefab, transform).GetComponent<Cell>();
+                Cells[i, j].SetPosInBoard(i, j);
             }
         }
+    }
+
+    public void ResetBoard()
+    {
+        for (int i = 1; i <= 3; i++)
+        {
+            for (int j = 1; j <= 3; j++)
+            {
+                Cells[i, j].ResetCell();
+            }
+        }
+
+    }   
+
+    public bool CheckFull()
+    {
+        for (int i = 1; i <= 3; i++)
+        {
+            for (int j = 1; j <= 3; j++)
+            {
+                if (!Cells[i, j].IsHaveSign()) return false;
+            }
+        }
+        return true;
     }
 }
