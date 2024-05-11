@@ -1,45 +1,38 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
 public static class Utils
 {
-    /// <summary> 
-    /// Destroy children of an object. 
-    /// </summary>
-    public static void DestroyAllChildren(this GameObject gameObject)
+    public static void AnimUpScale(Transform transform)
     {
-        foreach (var child in gameObject.transform.Cast<Transform>()) UnityEngine.Object.Destroy(child.gameObject);
-    }
-    public static void DestroyAllChildren(this Transform gameObject)
-    {
-        foreach (var child in gameObject.transform.Cast<Transform>()) UnityEngine.Object.Destroy(child.gameObject);
-    }
+        transform.localScale = Vector3.one;
+        transform.DOScale(Vector3.one * 1.1f, 0.3f).SetEase(Ease.OutBack);
 
-    /// <summary>
-    /// Destroy child at index
-    /// </summary>
-    public static void DestroyChildAt(this Transform transform, int index)
-    {
-        UnityEngine.Object.Destroy(transform.Cast<Transform>().ToList()[index]);
     }
+    public static void AnimDownScale(Transform transform)
+    {
+        //transform.localScale = Vector3.one * 1.1f;
+        transform.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
+    }
+    public static void AnimPrompt(Transform transform)
+    {
+        transform.DOScale(Vector3.one * 1.1f, 0.5f).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
+    }
+    public static void AnimAppear(Transform transform)
+    {
+        transform.localScale = Vector3.zero;
+        transform.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
 
-    /// <summary>
-    /// Set active all children of an object.
-    /// </summary>
-    public static void SetActiveAllChildren(this GameObject gameObject, bool enable)
-    {
-        foreach (Transform child in gameObject.transform)
-        {
-            child.gameObject.SetActive(enable);
-        }
     }
-    public static void SetActiveAllChildren(this Transform gameObject, bool enable)
+    public static void AnimDisAppear(Transform transform)
     {
-        foreach (Transform child in gameObject.transform)
-        {
-            child.gameObject.SetActive(enable);
-        }
+        transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack);
+
+    }
+    public static string Color(this string content, string color)
+    {
+        return $"<color={color}>{content}</color>";
     }
 }
