@@ -50,9 +50,7 @@ public class UIManager : MonoBehaviour
     {
         Instance = this;
         Messenger.AddListener<ETurn, EMode>(EventKey.OnEndGame, OnEndGamePopup);
-    }
-    public void Start()
-    {
+
         //screens
         playScreen = Instantiate(playScreenPrefab, transform).GetComponent<PlayScreen>();
         playScreen.gameObject.SetActive(false);
@@ -74,8 +72,12 @@ public class UIManager : MonoBehaviour
         losePopup = Instantiate(losePopupPrefab, PopupCanvas.transform).GetComponent<LosePopup>();
         losePopup.gameObject.SetActive(false);
 
-        drawPopup = Instantiate(drawPopupPrefab, PopupCanvas.transform).GetComponent <DrawPopup>();
+        drawPopup = Instantiate(drawPopupPrefab, PopupCanvas.transform).GetComponent<DrawPopup>();
         drawPopup.gameObject.SetActive(false);
+    }
+    public void Start()
+    {
+        
 
 
         OpenScreen(EScreen.Home);

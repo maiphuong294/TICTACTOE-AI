@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -24,9 +25,9 @@ public enum ETurn
 public class GameplayManager : MonoBehaviour
 {
     public static GameplayManager Instance { get; private set; }
-    public EMode Mode { get; set; }
-    public ELevel Level { get; set; }
-    public ETurn Turn { get; private set; }
+    public EMode Mode;
+    public ELevel Level;
+    public ETurn Turn;
 
     public ETurn Winner;
 
@@ -38,6 +39,10 @@ public class GameplayManager : MonoBehaviour
     }
     void Start()
     {
+        Input.multiTouchEnabled = false;
+        Application.targetFrameRate = 60;
+        Application.lowMemory += () => GC.Collect();
+
         Mode = EMode.PvE;
         Turn = ETurn.Player;
         Level = ELevel.Hard;
