@@ -111,7 +111,11 @@ public class GameplayManager : MonoBehaviour
                 return false;
             }
         }
-        DrawLine(ELine.Vertical, Board.Instance.Cells[2, cell.Column].transform.position);
+        if (cell.sign.eSign == ESign.X)
+        {
+            DrawLine(ELine.Vertical, Board.Instance.Cells[2, cell.Column].transform.position, ETurn.Player);
+        }else DrawLine(ELine.Vertical, Board.Instance.Cells[2, cell.Column].transform.position, ETurn.Opponent);
+
         return true;
     }
 
@@ -125,7 +129,11 @@ public class GameplayManager : MonoBehaviour
                 return false;
             }
         }
-        DrawLine(ELine.Horizontal, Board.Instance.Cells[cell.Row, 2].transform.position);
+        if (cell.sign.eSign== ESign.X)
+        {
+            DrawLine(ELine.Horizontal, Board.Instance.Cells[cell.Row, 2].transform.position, ETurn.Player);
+        }else DrawLine(ELine.Horizontal, Board.Instance.Cells[cell.Row, 2].transform.position, ETurn.Opponent);
+
         return true;
     }
 
@@ -140,7 +148,11 @@ public class GameplayManager : MonoBehaviour
                 return false;
             }
         }
-        DrawLine(ELine.Cross1, Board.Instance.Cells[2,2].transform.position);
+        if (cell.sign.eSign == ESign.X)
+        {
+            DrawLine(ELine.Cross1, Board.Instance.Cells[2, 2].transform.position, ETurn.Player);
+        }else DrawLine(ELine.Cross1, Board.Instance.Cells[2, 2].transform.position, ETurn.Opponent);
+
         return true;
     }
     public bool CheckCross2(Cell cell)
@@ -154,7 +166,11 @@ public class GameplayManager : MonoBehaviour
                 return false;
             }
         }
-        DrawLine(ELine.Cross2, Board.Instance.Cells[2, 2].transform.position);
+        if (cell.sign.eSign == ESign.X)
+        {
+            DrawLine(ELine.Cross2, Board.Instance.Cells[2, 2].transform.position, ETurn.Player);
+        }else DrawLine(ELine.Cross2, Board.Instance.Cells[2, 2].transform.position, ETurn.Opponent);
+
         return true;
     }
     #endregion
@@ -205,11 +221,12 @@ public class GameplayManager : MonoBehaviour
         UIManager.Instance.SetTurnUI(Turn);
     }
 
-    public void DrawLine(ELine type, Vector3 position)
+    public void DrawLine(ELine type, Vector3 position, ETurn winner)
     {
         Line line = Instantiate(linePrefab, transform);
         line.SetPosition(position);
         line.SetDirection(type);
+        line.SetColor(winner);
         line.Draw(type);
     }
 

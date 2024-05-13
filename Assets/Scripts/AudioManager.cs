@@ -11,13 +11,16 @@ public class AudioManager : MonoBehaviour
 
     [Header("Music")]
     public AudioClip homeMusic;
-    public AudioClip playMusic;
+    public AudioClip easyplayMusic;
+    public AudioClip mediumPlayMusic;
+    public AudioClip hardPlayMusic;
 
     [Header("Sound")]
     public AudioClip tickSign;
     public AudioClip buttonClick;
     public AudioClip win;
     public AudioClip lose;
+    public AudioClip tie;
 
     public void Awake()
     {
@@ -47,12 +50,11 @@ public class AudioManager : MonoBehaviour
         musicAudioSource.Stop();
     }
 
-    public void UpdateSoundVolume(float volume)
+    public void UpdateSoundVolume()
     {
-        soundAudioSource.volume = volume;
+  
+        soundAudioSource.volume = 1 - soundAudioSource.volume;
+        musicAudioSource.volume = 1 - soundAudioSource.volume;
     }
-    public void UpdateMusicVolume(float volume)
-    {
-        musicAudioSource.volume = volume;
-    }
+
 }

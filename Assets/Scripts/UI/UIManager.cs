@@ -49,8 +49,18 @@ public class UIManager : MonoBehaviour
     public void Awake()
     {
         Instance = this;
+        //events
         Messenger.AddListener<ETurn, EMode>(EventKey.OnEndGame, OnEndGamePopup);
 
+        SpawnScreens();
+        SpawnPopups();
+    }
+    public void Start()
+    {
+        OpenScreen(EScreen.Home);
+    }
+    public void SpawnScreens()
+    {
         //screens
         playScreen = Instantiate(playScreenPrefab, transform).GetComponent<PlayScreen>();
         playScreen.gameObject.SetActive(false);
@@ -63,8 +73,10 @@ public class UIManager : MonoBehaviour
 
         modeScreen = Instantiate(modeScreenPrefab, transform).GetComponent<ModeScreen>();
         modeScreen.gameObject.SetActive(false);
+    }
 
-
+    public void SpawnPopups()
+    {
         //popups
         winPopup = Instantiate(winPopupPrefab, PopupCanvas.transform).GetComponent<WinPopup>();
         winPopup.gameObject.SetActive(false);
@@ -75,18 +87,23 @@ public class UIManager : MonoBehaviour
         drawPopup = Instantiate(drawPopupPrefab, PopupCanvas.transform).GetComponent<DrawPopup>();
         drawPopup.gameObject.SetActive(false);
     }
-    public void Start()
-    {
-        
 
-
-        OpenScreen(EScreen.Home);
-    }
-
+    #region MANAGE PLAYSCREEN
     public void SetTurnUI(ETurn turn)
     {
         playScreen.SetTurnUI(turn);
     }
+    public void SetModeUI(EMode mode)
+    {
+        playScreen.SetModeUI(mode);
+    }
+    public void SetLevelUI(ELevel level)
+    {
+        playScreen.SetLevelUI(level);
+    }
+    #endregion
+
+
 
     public void OpenScreen(EScreen screen)
     {
@@ -117,6 +134,8 @@ public class UIManager : MonoBehaviour
         currentScreen.Appear();
     }
 
+
+    #region POPUP
     public void OpenPopup(EPopup popup)
     {
         switch (popup)
@@ -168,5 +187,5 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    
+    #endregion
 }

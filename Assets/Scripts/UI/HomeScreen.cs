@@ -5,15 +5,18 @@ using UnityEngine;
 public class HomeScreen : UIScreen
 {
     public GameObject playButton;
+    public GameObject tictactoe;
     public override void Appear()
     {
         base.Appear();
         Utils.AnimAppear(playButton.transform);
+        Utils.AnimAppear(tictactoe.transform);
     }
 
     public override void DisAppear()
     {     
-        Utils.AnimAppear(playButton.transform);
+        Utils.AnimDisAppear(playButton.transform);
+        Utils.AnimDisAppear(tictactoe.transform);
         base.DisAppear();
     }
 

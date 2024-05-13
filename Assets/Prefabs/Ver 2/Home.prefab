@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playButton: {fileID: 8475388406356848700}
+  tictactoe: {fileID: 0}
 --- !u!1 &3589152046448698448
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,6 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playButton: {fileID: 8475388406356848700}
+  tictactoe: {fileID: 4100705130527527020}
 --- !u!1 &5764770377237957107
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,12 +23,12 @@ public static class Utils
     public static void AnimAppear(Transform transform)
     {
         transform.localScale = Vector3.zero;
-        transform.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
+        transform.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutSine);
 
     }
     public static void AnimDisAppear(Transform transform)
     {
-        transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack);
+        transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InSine);
 
     }
     public static string Color(this string content, string color)
