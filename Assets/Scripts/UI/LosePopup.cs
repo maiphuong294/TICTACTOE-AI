@@ -6,6 +6,7 @@ public class LosePopup : Popup
 {
     public override void Open()
     {
+        AudioManager.Instance.PlaySound(AudioManager.Instance.lose);
         base.Open();
     }
 
@@ -14,15 +15,6 @@ public class LosePopup : Popup
         base.Close();
     }
 
-    public void OnHomeButton()
-    {
-        Close();
-        UIManager.Instance.OpenScreen(EScreen.Home);
-    }
 
-    public void OnPlayAgainButton()
-    {
-        GameplayManager.Instance.ResetLevel();
-        Close();
-    }
+
 }

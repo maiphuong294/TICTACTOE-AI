@@ -116,11 +116,13 @@ public class UIManager : MonoBehaviour
             case EScreen.Home:
                 currentScreen = homeScreen;
                 GameplayManager.Instance.IsPlaying = false;
+                //AudioManager.Instance.PlayMusic(AudioManager.Instance.homeMusic);
                 break;
             case EScreen.Play:
                 currentScreen = playScreen;
                 GameplayManager.Instance.IsPlaying = true;
                 GameplayManager.Instance.ResetLevel();
+                //AudioManager.Instance.PlayMusic(AudioManager.Instance.playMusic);
                 break;
             case EScreen.Level:
                 currentScreen = levelScreen;

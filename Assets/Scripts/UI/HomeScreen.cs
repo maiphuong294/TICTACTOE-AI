@@ -22,6 +22,7 @@ public class HomeScreen : UIScreen
 
     public void OnPlayButton()
     {
+        AudioManager.Instance.PlayClickButtonSound();
         UIManager.Instance.OpenScreen(EScreen.Mode);
     }
 

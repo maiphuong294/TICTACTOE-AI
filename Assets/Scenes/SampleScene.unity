@@ -773,15 +773,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundAudioSource: {fileID: 1437711887}
   musicAudioSource: {fileID: 1437711886}
-  homeMusic: {fileID: 0}
-  easyplayMusic: {fileID: 0}
-  mediumPlayMusic: {fileID: 0}
-  hardPlayMusic: {fileID: 0}
-  tickSign: {fileID: 0}
-  buttonClick: {fileID: 0}
-  win: {fileID: 0}
-  lose: {fileID: 0}
-  tie: {fileID: 0}
+  homeMusic: {fileID: 8300000, guid: 02213cd90dd75f645921271ec3ab88ac, type: 3}
+  playMusic: {fileID: 8300000, guid: f7b8cf3ad2f5d8d40b11c75128dc0fe3, type: 3}
+  tickSign: {fileID: 8300000, guid: 65a4c7dac7367ea40bebd87f17dc617c, type: 3}
+  buttonClick: {fileID: 8300000, guid: 31c6b795b62351b4ea8399a56395027c, type: 3}
+  win: {fileID: 8300000, guid: 4204fc079f6b24c40acfcc0c4c6cda8d, type: 3}
+  lose: {fileID: 8300000, guid: 7825b8e3f4db47b4d8f40dea88119999, type: 3}
+  tie: {fileID: 8300000, guid: 16180dc48cb9b884fa7e9c2c1a55a78b, type: 3}
 --- !u!4 &1437711889
 Transform:
   m_ObjectHideFlags: 0

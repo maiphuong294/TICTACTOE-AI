@@ -24,6 +24,7 @@ public class LevelScreen : UIScreen
 
     public void OnEasyButton()
     {
+        AudioManager.Instance.PlayClickButtonSound();
         GameplayManager.Instance.Level = ELevel.Easy;
         UIManager.Instance.SetLevelUI(ELevel.Easy);
         UIManager.Instance.OpenScreen(EScreen.Play);
@@ -31,6 +32,7 @@ public class LevelScreen : UIScreen
 
     public void OnMediumButton()
     {
+        AudioManager.Instance.PlayClickButtonSound();
         GameplayManager.Instance.Level = ELevel.Medium;
         UIManager.Instance.SetLevelUI(ELevel.Medium);
         UIManager.Instance.OpenScreen(EScreen.Play);
@@ -38,6 +40,7 @@ public class LevelScreen : UIScreen
 
     public void OnHardButton()
     {
+        AudioManager.Instance.PlayClickButtonSound();
         GameplayManager.Instance.Level = ELevel.Hard;
         UIManager.Instance.SetLevelUI(ELevel.Hard);
         UIManager.Instance.OpenScreen(EScreen.Play);

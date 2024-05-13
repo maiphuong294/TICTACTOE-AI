@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager instance { get; private set; }
+    public static AudioManager Instance { get; private set; }
 
     public AudioSource soundAudioSource;
     public AudioSource musicAudioSource;
 
     [Header("Music")]
     public AudioClip homeMusic;
-    public AudioClip easyplayMusic;
-    public AudioClip mediumPlayMusic;
-    public AudioClip hardPlayMusic;
+    public AudioClip playMusic;
 
     [Header("Sound")]
     public AudioClip tickSign;
@@ -24,7 +22,7 @@ public class AudioManager : MonoBehaviour
 
     public void Awake()
     {
-        instance = this;
+        Instance = this;
     }
     public void Start()
     {
@@ -52,8 +50,7 @@ public class AudioManager : MonoBehaviour
 
     public void UpdateSoundVolume()
     {
-  
-        soundAudioSource.volume = 1 - soundAudioSource.volume;
+        //soundAudioSource.volume = 1 - soundAudioSource.volume; //always on
         musicAudioSource.volume = 1 - soundAudioSource.volume;
     }
 

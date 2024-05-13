@@ -10,23 +10,12 @@ public class WinPopup : Popup
     public override void Open()
     {
         base.Open();
+        AudioManager.Instance.PlaySound(AudioManager.Instance.win);
     }
 
     public override void Close()
     {
         base.Close();
-    }
-
-    public void OnHomeButton()
-    {
-        Close();
-        UIManager.Instance.OpenScreen(EScreen.Home);
-    }
-
-    public void OnPlayAgainButton()
-    {
-        GameplayManager.Instance.ResetLevel();
-        Close();     
     }
 
     public void SetTitle(string s)

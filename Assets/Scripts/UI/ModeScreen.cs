@@ -21,6 +21,7 @@ public class ModeScreen : UIScreen
 
     public void OnPvPButton()
     {
+        AudioManager.Instance.PlayClickButtonSound();
         GameplayManager.Instance.Mode = EMode.PvP;
         UIManager.Instance.SetModeUI(EMode.PvP);
         UIManager.Instance.OpenScreen(EScreen.Play);
@@ -29,6 +30,7 @@ public class ModeScreen : UIScreen
     }
     public void OnPvEButton()
     {
+        AudioManager.Instance.PlayClickButtonSound();
         GameplayManager.Instance.Mode = EMode.PvE;
         UIManager.Instance.SetModeUI(EMode.PvE);
         UIManager.Instance.OpenScreen(EScreen.Level);

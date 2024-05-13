@@ -61,8 +61,15 @@ public class PlayScreen : UIScreen
         }
     }
 
+
+    public void OnSettingButton()
+    {
+        AudioManager.Instance.PlayClickButtonSound();
+        AudioManager.Instance.UpdateSoundVolume();
+    }
     public void OnHomeButton()
     {
+        AudioManager.Instance.PlayClickButtonSound();
         UIManager.Instance.OpenScreen(EScreen.Home);
 
     }

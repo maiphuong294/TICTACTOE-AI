@@ -33,6 +33,7 @@ public class Cell : MonoBehaviour
     #region SIGN MANAGE
     public void DrawSign(ESign type)
     {
+        AudioManager.Instance.PlaySound(AudioManager.Instance.tickSign);
         Sign a = Instantiate(signPrefab, transform);
         a.SetSign(type);
         a.Draw();

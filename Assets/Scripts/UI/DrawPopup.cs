@@ -7,6 +7,7 @@ public class DrawPopup : Popup
     public override void Open()
     {
         base.Open();
+        AudioManager.Instance.PlaySound(AudioManager.Instance.tie);
     }
 
     public override void Close()
@@ -14,15 +15,4 @@ public class DrawPopup : Popup
         base.Close();
     }
 
-    public void OnHomeButton()
-    {
-        Close();
-        UIManager.Instance.OpenScreen(EScreen.Home);
-    }
-
-    public void OnPlayAgainButton()
-    {
-        GameplayManager.Instance.ResetLevel();
-        Close();
-    }
 }
